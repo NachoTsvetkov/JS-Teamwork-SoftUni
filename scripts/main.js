@@ -8,12 +8,16 @@ var config = new Config();
 var canvasEl = document.getElementById("canvas"),
     tiles = new Tiles(),
     player = new Player(tiles.activeTiles[0]),
-    board = new Board(canvasEl, player);
+    board = new Board(canvasEl, player),
     keys = [],
-    isActive = true;
+    isActive = true,
+    canRun = true,
+    score = 0;
 
 function update() {
-    if (isActive) {
+    if (isActive && canRun) {
+        score++;
+
         board.clearRect();
 
         tiles.update();
@@ -26,6 +30,10 @@ function update() {
         board.fillRect(player);
 
         requestAnimationFrame(update);
+    } else {
+        if(!isActive) {
+            message.gameOver();
+        }
     }
 }
 
