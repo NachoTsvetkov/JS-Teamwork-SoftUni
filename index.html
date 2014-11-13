@@ -3,11 +3,40 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Teamwork Game</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles/styles.css"/>
 
 </head>
 <body>
-    <canvas id="canvas"></canvas>
+    <section class="game">
+        <header class="game-header">
+            <h1 class="game-name">Jumper</h1>
+        </header>
+        <section class="game-main">
+            <aside class="high-scores">
+                <h2>High Scores</h2>
+                <ol class="high-scores-list" id="lstHighScores">
+                    <!--Add items in js-->
+                </ol>
+            </aside>
+
+            <canvas id="canvas"></canvas>
+
+            <aside class="game-info">
+                <section class="score">
+                    <h2>Score:</h2>
+                    <label id="lblScore" class="score-label">0</label>
+                </section>
+                <section class="level">
+                    <h2>Level:</h2>
+                    <label id="lblLevel" class="level-label">0</label>
+                </section>
+                <section class="buttons">
+                    <button id="btnStartStop">Start</button>
+                    <button id="Restart">Restart</button>
+                </section>
+            </aside>
+        </section>
+    </section>
     <script src="scripts/config.js"></script>
     <script src="scripts/colcheck.js"></script>
     <script src="scripts/board.js"></script>
