@@ -54,7 +54,7 @@ function Player(tile) {
                 that.grounded = true;
                 that.jumping = false;
             } else if (dir === "t") {
-                that.velY *= -1;
+                that.velY = 1;
             }
 
         }
