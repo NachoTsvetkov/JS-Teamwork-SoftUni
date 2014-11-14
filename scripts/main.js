@@ -17,6 +17,7 @@ var canvasEl = document.getElementById("canvas"),
     tiles = new Tiles(),
     player = new Player(tiles.activeTiles[0]),
     board = new Board(canvasEl, player),
+    highScores = new HighScores(),
     isActive = true,
     canRun = true,
     score = 0;
@@ -25,7 +26,7 @@ function update() {
     if (isActive && canRun) {
         score++;
         lblScoreEl.innerHTML = score;
-
+        highScores.update();
         board.clearRect();
 
         tiles.update();
@@ -39,17 +40,16 @@ function update() {
 
         requestAnimationFrame(update);
     } else {
-        if(!isActive) {
-            //To Do: add high score
-            //var isHighScore = highScores.setScore(score);
-            //if (isHighScore) {
-            //  message.show("Congratulations! High Score!", true);
-            // } else
+        if (!isActive) {
+            var isHighScore = highScores.setScore(score);
+            if (isHighScore) {
+                message.show("Congratulations! High Score!", true);
+            } else {
                 message.show("Game Over", true);
-            //}
+            }
         }
 
-        if(!canRun) {
+        if (!canRun) {
             board.clearRect();
         }
     }
@@ -65,7 +65,7 @@ document.body.addEventListener("keyup", function (e) {
 });
 
 btnStartStopEl.addEventListener("click", function () {
-    if(app.canRun) {
+    if (app.canRun) {
         message.show("Pause");
         app.canRun = !canRun;
     } else {
@@ -84,11 +84,12 @@ btnRestartEl.addEventListener("click", function () {
     app.isActive = true;
     app.canRun = true;
     app.score = 0;
-
+// SPEED INCREASES BY CLICKING ON RESTART BUTTON!
     app.update();
 });
 
 window.addEventListener("load", function () {
+    highScores.update();
     update();
 });
 
