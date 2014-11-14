@@ -5,37 +5,39 @@
     <title>Teamwork Game</title>
     <link rel="stylesheet" href="styles/styles.css"/>
 
+    <link rel="stylesheet" href="styles/harry.css"/>
+    <link rel="stylesheet" href="styles/kala.css"/>
 </head>
 <body>
     <section class="game">
         <header class="game-header">
             <h1 class="game-name">Jumper</h1>
         </header>
-        <section class="game-main">
-            <aside class="high-scores">
-                <h2>High Scores</h2>
-                <ol class="high-scores-list" id="lstHighScores">
-                    <!--Add items in js-->
-                </ol>
-            </aside>
+        <aside class="game-scores">
+            <h2>High Scores</h2>
+            <ol class="high-scores-list" id="lstHighScores">
+                <!--Add items in js-->
+            </ol>
+        </aside>
 
+        <section class="game-canvas">
             <canvas id="canvas"></canvas>
-
-            <aside class="game-info">
-                <section class="score">
-                    <h2>Score:</h2>
-                    <label id="lblScore" class="score-label">0</label>
-                </section>
-                <section class="level">
-                    <h2>Level:</h2>
-                    <label id="lblLevel" class="level-label">0</label>
-                </section>
-                <section class="buttons">
-                    <button id="btnStartStop">Start</button>
-                    <button id="btnRestart">Restart</button>
-                </section>
-            </aside>
         </section>
+
+        <aside class="game-info">
+            <section class="score">
+                <h2>Score:</h2>
+                <label id="lblScore" class="score-label">0</label>
+            </section>
+            <section class="level">
+                <h2>Level:</h2>
+                <label id="lblLevel" class="level-label">0</label>
+            </section>
+            <section class="buttons">
+                <button id="btnStartStop">Start</button>
+                <button id="btnRestart">Restart</button>
+            </section>
+        </aside>
         <label id="lblMessage" class="game-message">You should not see this!</label>
     </section>
     <script src="scripts/config.js"></script>

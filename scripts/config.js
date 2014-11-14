@@ -1,5 +1,5 @@
 function Config() {
-    this.canvasWidth = 500;
+    this.canvasWidth = 300;
     this.canvasHeight = 400;
 
     this.palyerWidth = 20;
