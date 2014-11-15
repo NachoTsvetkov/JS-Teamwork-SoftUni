@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <title>Teamwork Game</title>
     <link rel="stylesheet" href="styles/styles.css"/>
-
     <link rel="stylesheet" href="styles/harry.css"/>
-    <link rel="stylesheet" href="styles/kala.css"/>
 </head>
 <body>
     <section class="game">
         <header class="game-header">
-            <h1 class="game-name">Jumper</h1>
+            <h1 class="game-name">Cosmic Trip</h1>
         </header>
         <aside class="game-scores">
             <h2>High Scores</h2>
@@ -34,8 +32,12 @@
                 <label id="lblLevel" class="level-label">0</label>
             </section>
             <section class="buttons">
-                <button id="btnStartStop">Start</button>
-                <button id="btnRestart">Restart</button>
+                <button id="btnStartStop" onclick="
+                if(document.getElementById('btnStartStop').innerHTML == 'PAUSE')
+                document.getElementById('btnStartStop').innerHTML='START';
+                else if(document.getElementById('btnStartStop').innerHTML == 'START')
+                document.getElementById('btnStartStop').innerHTML='PAUSE';">PAUSE</button>
+                <button id="btnRestart">RESTART</button>
             </section>
         </aside>
         <label id="lblMessage" class="game-message">You should not see this!</label>
