@@ -34,17 +34,22 @@ function restart(level) {
         app.canRun = true;
         app.isRestart = false;
         app.score = 0;
+        app.level = 1;
 
+        lblLevelEl.innerHTML = app.level;
         btnStartStopEl.innerHTML = config.lblStop;
 
         app.message.hide();
 
     } else {
+        app.canRun = false;
         message.show(config.levelUpMessage + level, true, function() {
             app.tiles = new Tiles(level);
 
             app.player = new Player(tiles.activeTiles[0]);
             app.board = new Board(canvasEl, player);
+            app.canRun = true;
+            app.update();
         })
     }
 }

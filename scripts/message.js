@@ -5,9 +5,13 @@ function Message (element) {
         that.el = element;
     }
 
-    this.hide = function (timeout) {
+    this.hide = function (timeout, callback) {
         setTimeout(function(){
             that.el.style.visibility = "hidden";
+
+            if (typeof callback == "function") {
+                callback();
+            }
         }, timeout);
     }
 
@@ -16,11 +20,7 @@ function Message (element) {
         that.el.style.visibility = "visible";
 
         if (autoHide) {
-            that.hide(3000)
-        }
-
-        if(typeof callback == "function")  {
-            callback();
+            that.hide(3000, callback)
         }
     }
 

@@ -10,6 +10,8 @@ function Tiles (level) {
     this.unactiveTiles = [];
     this.timeInterval = 0;
 
+    this.timeEnd = config.tilesTimeInterval - level * config.tilesLevelUpRatio;
+
     this.update = function() {
         if(that.timeInterval == config.tilesTimeInterval) {
             var tile = that.unactiveTiles.shift() || new Tile(level);
