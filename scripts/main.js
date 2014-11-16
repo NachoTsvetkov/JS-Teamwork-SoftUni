@@ -55,7 +55,10 @@ function update() {
         lblScoreEl.innerHTML = app.score;
 
         if (score % config.levelUpScore == 0) {
-            app.restart(level);
+            app.level++;
+            lblLevelEl.innerHTML = app.level;
+
+            app.restart(app.level);
         }
 
         board.clearRect();
