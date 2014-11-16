@@ -21,26 +21,43 @@ var canvasEl = document.getElementById("canvas"),
     isActive = true,
     canRun = true,
     isRestart = false,
-    score = 0;
+    score = 0,
+    level = 1;
 
-function restart() {
-    app.tiles = new Tiles();
-    app.player = new Player(tiles.activeTiles[0]);
-    app.board = new Board(canvasEl, player);
-    app.isActive = true;
-    app.canRun = true;
-    app.isRestart = false;
-    app.score = 0;
+function restart(level) {
+    if (!level) {
+        app.tiles = new Tiles();
 
-    btnStartStopEl.innerHTML = config.lblStop;
+        app.player = new Player(tiles.activeTiles[0]);
+        app.board = new Board(canvasEl, player);
+        app.isActive = true;
+        app.canRun = true;
+        app.isRestart = false;
+        app.score = 0;
 
-    app.message.hide();
+        btnStartStopEl.innerHTML = config.lblStop;
+
+        app.message.hide();
+
+    } else {
+        message.show(config.levelUpMessage + level, true, function() {
+            app.tiles = new Tiles(level);
+
+            app.player = new Player(tiles.activeTiles[0]);
+            app.board = new Board(canvasEl, player);
+        })
+    }
 }
 
 function update() {
     if (isActive && canRun && !isRestart) {
         score++;
         lblScoreEl.innerHTML = app.score;
+
+        if (score % config.levelUpScore == 0) {
+            app.restart(level);
+        }
+
         board.clearRect();
 
         tiles.update();
@@ -109,6 +126,7 @@ btnRestartEl.addEventListener("click", function () {
 
 window.addEventListener("load", function () {
     highScores.update();
+    lblLevelEl.innerHTML = app.level;
     update();
 });
 

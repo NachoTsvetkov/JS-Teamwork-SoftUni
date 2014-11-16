@@ -11,12 +11,16 @@ function Message (element) {
         }, timeout);
     }
 
-    this.show = function(strMessage, autoHide) {
+    this.show = function(strMessage, autoHide, callback) {
         that.el.innerHTML = strMessage;
         that.el.style.visibility = "visible";
 
         if (autoHide) {
             that.hide(3000)
+        }
+
+        if(typeof callback == "function")  {
+            callback();
         }
     }
 

@@ -1,4 +1,4 @@
-function Tile () {
+function Tile (level) {
     var that = this;
 
     this.width = config.tileMaxWidth;
@@ -6,7 +6,14 @@ function Tile () {
     this.color = config.tileColor;
     this.y = -config.tileHeight;
     this.x = 0;
-    this.velY = config.tileStartVel;
+
+    this.level = 1;
+
+    if (level) {
+        that.level = level;
+    }
+
+    this.velY = config.tileStartVel * (1 + this.level * config.tileLevelUpRatio);
 
     this.setRandomX = function() {
         var length = config.canvasWidth - that.width;
