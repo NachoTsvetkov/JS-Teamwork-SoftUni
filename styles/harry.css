@@ -1,0 +1,60 @@
+body {
+    background-image: url('images/backgrounda.jpg');
+}
+.game-canvas {
+    background-image: url('images/kosmosa.jpeg');
+}
+.game {
+    /*background-image: url('images/cosmos.jpeg'); */
+    background-image: url('images/body-background.jpeg');
+    margin-top: 9%;
+    padding-bottom: 15px;
+}
+.game-scores, .game-info {
+    background-image: url('images/images.jpg');
+}
+.game-header {
+    padding-bottom: 9px;
+}
+h2, li, label {
+    font-family: Yanone Kaffeesatz Regular, Ariel, Sans-serif;
+    color: white;
+    padding-left: 1%;
+    text-align: center;
+}
+h1 {
+    color: white;
+    padding-left: 3%;
+    text-align: center;
+    font-family: Yanone Kaffeesatz Regular, Ariel, Sans-serif;
+}
+.buttons {
+    margin-left: 31%;
+    margin-top: 137%;
+    width: 100%;
+}
+.game, .game-header, .game-canvas, .game-scores, .game-info {
+    border: 1px solid white;
+}
+#btnStartStop, #btnRestart {
+padding: 3%;
+background: black;
+color: white;
+font-weight: bold;
+font-size: 14px;
+}
+#btnRestart {
+    margin-top: 13%;
+}
+#btnRestart:hover {
+background: white;
+cursor: pointer;
+color: black;
+text-shadow: 1px 1px black;
+}
+#btnStartStop:hover {
+background: white;
+cursor: pointer;
+color: black;
+text-shadow: 1px 1px black;
+}
