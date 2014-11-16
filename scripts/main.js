@@ -20,13 +20,27 @@ var canvasEl = document.getElementById("canvas"),
     highScores = new HighScores(),
     isActive = true,
     canRun = true,
+    isRestart = false,
     score = 0;
 
+function restart() {
+    app.tiles = new Tiles();
+    app.player = new Player(tiles.activeTiles[0]);
+    app.board = new Board(canvasEl, player);
+    app.isActive = true;
+    app.canRun = true;
+    app.isRestart = false;
+    app.score = 0;
+
+    btnStartStopEl.innerHTML = "PAUSE";
+
+    app.message.hide();
+}
+
 function update() {
-    if (isActive && canRun) {
+    if (isActive && canRun && !isRestart) {
         score++;
-        lblScoreEl.innerHTML = score;
-        highScores.update();
+        lblScoreEl.innerHTML = app.score;
         board.clearRect();
 
         tiles.update();
@@ -49,6 +63,11 @@ function update() {
             }
         }
 
+        if (isRestart) {
+            app.restart();
+            app.update();
+        }
+
         if (!canRun) {
             board.clearRect();
         }
@@ -67,25 +86,23 @@ document.body.addEventListener("keyup", function (e) {
 btnStartStopEl.addEventListener("click", function () {
     if (app.canRun) {
         message.show("Pause");
-        app.canRun = !canRun;
+        btnStartStopEl.innerHTML = "CONTINUE";
+        app.canRun = false;
     } else {
         app.message.hide();
-        app.canRun = !canRun;
+        btnStartStopEl.innerHTML = "PAUSE";
+        app.canRun = true;
         update();
     }
 });
 
 btnRestartEl.addEventListener("click", function () {
-    app.isActive = false;
+    app.isRestart = true;
 
-    app.tiles = new Tiles();
-    app.player = new Player(tiles.activeTiles[0]);
-    app.board = new Board(canvasEl, player);
-    app.isActive = true;
-    app.canRun = true;
-    app.score = 0;
-// SPEED INCREASES BY CLICKING ON RESTART BUTTON!
-    app.update();
+    if(!canRun || !isActive) {
+        app.restart();
+        update();
+    }
 });
 
 window.addEventListener("load", function () {
