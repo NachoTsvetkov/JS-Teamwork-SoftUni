@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f69531f7-1c55-4b57-91a5-6f00b83fa26b" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/config.js" afterPath="$PROJECT_DIR$/scripts/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/main.js" afterPath="$PROJECT_DIR$/scripts/main.js" />
     </list>
     <ignored path="JS-Teamwork-SoftUni.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -478,7 +476,13 @@
       <option name="project" value="LOCAL" />
       <updated>1416147761101</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="footer element added">
+      <created>1416152241252</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1416152241252</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
