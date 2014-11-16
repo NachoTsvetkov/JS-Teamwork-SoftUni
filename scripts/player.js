@@ -44,6 +44,7 @@ function Player(tile) {
         that.velX *= config.friction;
 
         that.grounded = false;
+
         for (var i = 0; i < tiles.length; i++) {
             var dir = colCheck(that, tiles[i]);
 
@@ -54,19 +55,27 @@ function Player(tile) {
                 that.grounded = true;
                 that.jumping = false;
             } else if (dir === "t") {
-                that.velY = 1;
+                that.velY = 2;
+            }
+            //Check for falling to left
+            if (that.x + that.width - 5 < tiles[i].x && that.y < tiles[i].y + tiles[i].height) {
+                that.jumping = true;
+            }
+            //Check for falling to right
+            if (that.x > tiles[i].x + tiles[i].width - 5 && that.y < tiles[i].y + tiles[i].height) {
+                that.jumping = true;
             }
 
         }
 
-        if(that.grounded){
+        if (that.grounded) {
             that.velY = 0;
         }
 
         that.x += that.velX;
         that.y += that.velY;
 
-        if(that.y > (config.canvasHeight + config.playerHeight)) {
+        if (that.y > (config.canvasHeight + config.playerHeight)) {
             that.isActive = false;
         }
 
