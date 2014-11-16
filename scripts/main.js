@@ -32,7 +32,7 @@ function restart() {
     app.isRestart = false;
     app.score = 0;
 
-    btnStartStopEl.innerHTML = "PAUSE";
+    btnStartStopEl.innerHTML = config.lblStop;
 
     app.message.hide();
 }
@@ -86,11 +86,11 @@ document.body.addEventListener("keyup", function (e) {
 btnStartStopEl.addEventListener("click", function () {
     if (app.canRun) {
         message.show("Pause");
-        btnStartStopEl.innerHTML = "CONTINUE";
+        btnStartStopEl.innerHTML = config.lblStart;
         app.canRun = false;
     } else {
         app.message.hide();
-        btnStartStopEl.innerHTML = "PAUSE";
+        btnStartStopEl.innerHTML = config.lblStop;
         app.canRun = true;
         update();
     }

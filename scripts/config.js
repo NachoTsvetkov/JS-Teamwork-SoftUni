@@ -1,4 +1,8 @@
 function Config() {
+    this.lblStart = "START";
+    this.lblStop = "PAUSE";
+    this.lblRestart = "RESTART";
+
     this.canvasWidth = 300;
     this.canvasHeight = 400;
 
