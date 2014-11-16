@@ -84,15 +84,17 @@ document.body.addEventListener("keyup", function (e) {
 });
 
 btnStartStopEl.addEventListener("click", function () {
-    if (app.canRun) {
-        message.show("Pause");
-        btnStartStopEl.innerHTML = config.lblStart;
-        app.canRun = false;
-    } else {
-        app.message.hide();
-        btnStartStopEl.innerHTML = config.lblStop;
-        app.canRun = true;
-        update();
+    if (isActive) {
+        if (app.canRun) {
+            message.show("Pause");
+            btnStartStopEl.innerHTML = config.lblStart;
+            app.canRun = false;
+        } else {
+            app.message.hide();
+            btnStartStopEl.innerHTML = config.lblStop;
+            app.canRun = true;
+            update();
+        }
     }
 });
 
