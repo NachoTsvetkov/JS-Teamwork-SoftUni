@@ -16,13 +16,14 @@ function HighScores() {
     };
 
     this.checkScore = function (score) {
-
+        isHighScore = false;
         if (scores.length == 0) {
-            scores.push(score);
-            isHighScore = false;
+            //scores.push(score);
+            scores.push({name: this.getName(), score: score});
+            isHighScore = true;
         } else {
             for (var i = 0; i < scores.length; i++) {
-                if (scores[i] < score) {
+                if (scores[i].score < score) {
 
                     var remaining = [];
 
@@ -31,21 +32,20 @@ function HighScores() {
                     }
 
                     remaining = scores.splice(i, scores.length);
-                    remaining.unshift(score);
+                    remaining.unshift({name: this.getName(), score: score});
 
                     for (var j = 0; j < remaining.length; j++) {
                         scores.push(remaining[j]);
                     }
-
                     isHighScore = true;
                     break;
 
-                } else if (scores[scores.length - 1] > score && scores.length < 10) {
-                    scores.push(score);
+                } else if (scores[scores.length - 1].score > score && scores.length < 10) {
+                    scores.push({name: this.getName(), score: score});
                     isHighScore = true;
                     break;
 
-                } else if (scores[scores.length - 1] > score && score.length == 10) {
+                } else if (scores[scores.length - 1].score > score && scores.length == 10) {
                     isHighScore = false;
                     break;
                 }
@@ -63,12 +63,19 @@ function HighScores() {
         }
         for (var i = 0; i < arr.length; i++) {
             var newLi = document.createElement("LI");
-            var txt = document.createTextNode(arr[i]);
+            var txt = document.createTextNode(arr[i].name + ' ' + arr[i].score);
             newLi.appendChild(txt);
             highScoreListEl.appendChild(newLi);
         }
-    }
+    };
 
+    this.getName = function () {
+        var name = prompt("Enter your initials XXX.");
+        while (name.length > 3){
+            name = prompt("Only 3 letters, remember? ")
+        }
+        return name;
+    }
 }
 
 
