@@ -20,7 +20,7 @@ function Config() {
     this.tileLevelUpRatio = 0.05;
 
     this.tilesTimeInterval = 140;
-    this.tilesLevelUpRatio = 15;
+    this.tilesLevelUpRatio = 20;
 
     this.friction = 0.9;
     this.gravity = 0.5;
