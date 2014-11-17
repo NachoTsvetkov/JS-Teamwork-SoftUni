@@ -18,6 +18,7 @@ var canvasEl = document.getElementById("canvas"),
     player = new Player(tiles.activeTiles[0]),
     board = new Board(canvasEl, player),
     highScores = new HighScores(),
+
     isActive = true,
     canRun = true,
     isRestart = false,
@@ -80,7 +81,7 @@ function update() {
         requestAnimationFrame(update);
     } else {
         if (!isActive) {
-            var isHighScore = highScores.setScore(score);
+            var isHighScore = highScores.checkScore(score);
             if (isHighScore) {
                 message.show("Congratulations! High Score!", true);
             } else {
@@ -133,8 +134,8 @@ btnRestartEl.addEventListener("click", function () {
 });
 
 window.addEventListener("load", function () {
-    highScores.update();
     lblLevelEl.innerHTML = app.level;
+    highScores.fillList();
     update();
 });
 

@@ -1,46 +1,66 @@
 function HighScores() {
 
-    console.log(document.cookie);
+    var storage = localStorage,
+        highScoreListEl = document.getElementById("lstHighScores"),
+        isHighScore = false;
 
-    var scores = document.cookie.split(/[a-z=;\s]/i).filter(function (n) {
-            return n != undefined && n != ''
-        }),
-        highScore = parseInt(scores[scores.length - 1]),
-        scoreList = document.getElementById("lstHighScores"),
-        index = 1;
+    var scores = this.fillList;
 
-    this.getIndex = function () {
-        if (scores != '') {
-            index = parseInt(scores[scores.length - 2]) + 1;
-        }
-        return index;
-    };
-
-    this.setScore = function (score) {
-        if (document.cookie == '' || score > highScore) {
-            var scoreName = "score" + this.getIndex(scores) + "=" + score + "; ";
-            document.cookie = scoreName;
-            this.addToScoreList(score);
-            return true;
-        }
-        return false;
-    };
-
-    this.addToScoreList = function (score) {
-        var newLi = document.createElement("li");
-        var txt = document.createTextNode(score);
-        newLi.appendChild(txt);
-        scoreList.insertBefore(newLi, scoreList.firstChild);
-    };
-
-    this.update = function () {
-        while (scoreList.firstChild) {
-            scoreList.removeChild(scoreList.firstChild);
-        }
-        for (var i = 1; i < scores.length; i += 2) {
-            this.addToScoreList(scores[i]);
+    this.fillList = function () {
+        if (storage.length != 0) {
+            scores = JSON.parse(storage.getItem('gameScores'));
+            this.updateList(highScoreListEl, scores);
+        } else {
+            scores = [];
         }
     };
+
+    this.checkScore = function (score) {
+
+        if (scores.length == 0) {
+            scores.push(score);
+        } else {
+            for (var i = 0; i < scores.length; i++) {
+                if (scores[i] < score) {
+
+                    isHighScore = true;
+                    var remaining = [];
+
+                    if (scores.length == 10) {
+                        scores.pop();
+                        remaining = scores.splice(i, scores.length)
+                    } else {
+                        remaining = scores.splice(i, scores.length);
+                    }
+
+                    remaining.unshift(score);
+
+                    for (var j = 0; j < remaining.length; j++) {
+                        scores.push(remaining[j]);
+                    }
+
+                    score = 0;
+                }
+            }
+        }
+
+        localStorage.setItem('gameScores', JSON.stringify(scores));
+        this.updateList(highScoreListEl, scores);
+        return isHighScore;
+    };
+
+    this.updateList = function (list, arr) {
+        while (highScoreListEl.firstChild) {
+            highScoreListEl.firstChild.remove();
+        }
+        for (var i = 0; i < arr.length; i++) {
+            var newLi = document.createElement("LI");
+            var txt = document.createTextNode(arr[i]);
+            newLi.appendChild(txt);
+            highScoreListEl.appendChild(newLi);
+        }
+    }
+
 }
 
 
