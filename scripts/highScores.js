@@ -19,27 +19,35 @@ function HighScores() {
 
         if (scores.length == 0) {
             scores.push(score);
+            isHighScore = false;
         } else {
             for (var i = 0; i < scores.length; i++) {
                 if (scores[i] < score) {
 
-                    isHighScore = true;
                     var remaining = [];
 
                     if (scores.length == 10) {
                         scores.pop();
-                        remaining = scores.splice(i, scores.length)
-                    } else {
-                        remaining = scores.splice(i, scores.length);
                     }
 
+                    remaining = scores.splice(i, scores.length);
                     remaining.unshift(score);
 
                     for (var j = 0; j < remaining.length; j++) {
                         scores.push(remaining[j]);
                     }
 
-                    score = 0;
+                    isHighScore = true;
+                    break;
+
+                } else if (scores[scores.length - 1] > score && scores.length < 10) {
+                    scores.push(score);
+                    isHighScore = true;
+                    break;
+
+                } else if (scores[scores.length - 1] > score && score.length == 10) {
+                    isHighScore = false;
+                    break;
                 }
             }
         }
