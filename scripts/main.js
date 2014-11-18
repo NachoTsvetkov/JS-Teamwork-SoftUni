@@ -79,7 +79,7 @@ function update() {
             board.fillRect(tiles.activeTiles[tile], imgTileEl);
         }
 
-        if (player.jumping || !player.grounded) {
+        if (player.jumping) {
             board.fillRect(player, imgPlayerJEl, true);
         } else {
             board.fillRect(player, imgPlayerEl, true);
