@@ -14,6 +14,7 @@ var canvasEl = document.getElementById("canvas"),
     lblLevelEl = document.getElementById("lblLevel"),
     imgTileEl = document.getElementById("imgTile"),
     imgPlayerEl = document.getElementById("imgPlayer"),
+    imgPlayerJEl = document.getElementById("imgPlayerJumping"),
     message = new Message(messageEl),
     keys = [],
     tiles = new Tiles(),
@@ -78,6 +79,11 @@ function update() {
             board.fillRect(tiles.activeTiles[tile], imgTileEl);
         }
 
+        if (player.jumping) {
+            board.fillRect(player, imgPlayerJEl, true);
+        } else {
+            board.fillRect(player, imgPlayerEl, true);
+        }
         board.fillRect(player, imgPlayerEl, true);
 
         requestAnimationFrame(update);
