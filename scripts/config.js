@@ -8,7 +8,7 @@ function Config() {
 
     this.palyerWidth = 20;
     this.playerHeight = 75;
-    this.playerSpeed = 3;
+    this.playerSpeed = 1;
     this.playerColor = "#FFFFFF";
     this.playerJumpSpeed = 4;
 
@@ -23,7 +23,7 @@ function Config() {
     this.tilesLevelUpRatio = 20;
 
     this.friction = 0.9;
-    this.gravity = 0.5;
+    this.gravity = 0.05;
 
     this.levelUpScore = 1000;
     this.levelUpMessage = "Level: ";
