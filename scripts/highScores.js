@@ -71,10 +71,7 @@ function HighScores() {
 
     this.getName = function () {
         var name = prompt("Enter your initials XXX.");
-        while (name.length > 3){
-            name = prompt("Only 3 letters, remember? ")
-        }
-        return name;
+        return name.substr(0,3);
     }
 }
 

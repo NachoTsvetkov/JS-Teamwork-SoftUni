@@ -2,66 +2,10 @@ section, header, h1, aside, h2, ol, li, canvas, label, button {
     margin: 0;
     padding: 0;
     border: 0;
-
     box-sizing: border-box;
 }
-
-ol {
-    padding-left: 30px;
-}
-
-.game-header {
-    text-align: center;
-}
-
-.game {
-    margin: 40px auto;
-
-    width: 602px;
-    border: 1px solid red;
-}
-
-.game-header {
-    border: 1px solid red;
-    display: block;
-}
-
-.game-scores {
-    border: 1px solid red;
-    display: inline-block;
-    height: 400px;
-    width: 150px;
-    float: left;
-}
-
-.game-canvas {
-    border: 1px solid black;
-    width: 300px;
-    height: 400px;
-
-    display: inline-block;
-}
-
-.game-canvas > canvas {
-
-}
-
-.game-info {
-    border: 1px solid red;
-    display: inline-block;
-    height: 400px;
-    width: 150px;
-    float: right;
-
-    flex-flow: column;
-}
-
-.game-message {
-    position: relative;
-    top: -215px;
-    left: 280px;
-}
-
-button {
-    width: 50%;
+body {
+    background-image: url('images/html_backgroudn.jpg');
+    background-size: cover;
+    font-family: 'Audiowide', cursive;
 }
