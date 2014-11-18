@@ -75,17 +75,18 @@ body {
 .level, .score {
     margin: 5% auto;
 }
-.buttons{
+
+.buttons {
     margin-top: 140px;
 }
 
 .buttons > button {
+    border: 3px solid #222;
     width: 42%;
     padding: 3%;
     margin: 1% 1%;
     background: #222;
     border-radius: 2px;
-    border: none;
     color: white;
     outline: none;
 }
@@ -101,7 +102,7 @@ body {
 }
 
 .game-message {
-    font-size: 36px;
+    font-size: 32px;
     position: absolute;
     width: 100%;
     top: 45%;
@@ -125,7 +126,10 @@ footer {
 }
 
 button:hover {
-    background: #555;
+    background: #fff;
+    color: #000;
+    border: 3px solid #222;
+
 }
 
 .clearfix:after {

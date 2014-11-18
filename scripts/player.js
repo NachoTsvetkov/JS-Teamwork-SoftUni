@@ -27,12 +27,18 @@ function Player(tile) {
                 that.velY = -player.speed * config.playerJumpSpeed;
             }
         }
+
+        if (keys[40]) {
+            that.velY = 2;
+        }
+
         if (keys[39]) {
             // right arrow
             if (that.velX < that.speed) {
                 that.velX++;
             }
         }
+
         if (keys[37]) {
             // left arrow
             if (that.velX > -that.speed) {

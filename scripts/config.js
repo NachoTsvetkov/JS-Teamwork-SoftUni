@@ -3,7 +3,7 @@ function Config() {
     this.lblStop = "PAUSE";
     this.lblRestart = "RESTART";
 
-    this.canvasWidth = 500;
+    this.canvasWidth = 400;
     this.canvasHeight = 550;
 
     this.palyerWidth = 20;
