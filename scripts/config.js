@@ -19,7 +19,7 @@ function Config() {
     this.tileStartVel = 1;
     this.tileLevelUpRatio = 0.05;
 
-    this.tilesTimeInterval = 140;
+    this.tilesTimeInterval = 70;
     this.tilesLevelUpRatio = 20;
 
     this.friction = 0.9;
