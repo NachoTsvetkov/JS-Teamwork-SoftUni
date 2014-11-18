@@ -35,13 +35,13 @@ body {
     vertical-align: top;
     width: 25%;
     height: 287px;
-    margin: auto 2%;
+    margin: auto 1%;
     padding: 1%;
 }
 
 .game-canvas {
     display: inline-block;
-    width: 34%;
+    width: 36%;
     margin: 0 1%;
     min-width: 300px;
 }
@@ -119,8 +119,9 @@ ol {
 
 footer {
     background: rgba(128, 128, 128, .5);
-    width: 30%;
+    width: 27%;
     position: absolute;
+    padding: .5%;
     bottom: 0;
     right: 0;
 }
