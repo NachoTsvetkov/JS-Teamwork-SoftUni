@@ -62,16 +62,30 @@ function HighScores() {
             highScoreListEl.firstChild.remove();
         }
         for (var i = 0; i < arr.length; i++) {
-            var newLi = document.createElement("LI");
-            var txt = document.createTextNode(arr[i].name + ' ' + arr[i].score);
-            newLi.appendChild(txt);
+            var newLi = document.createElement("li");
+
+            var lblName = document.createElement("label");
+            lblName.className = "scoreName";
+
+            var lblScore = document.createElement("label");
+            lblScore.className = "scoreValue";
+
+            var scoreName = document.createTextNode(arr[i].name);
+            var scoreValue = document.createTextNode(arr[i].score);
+
+            lblName.appendChild(scoreName);
+            lblScore.appendChild(scoreValue);
+
+            newLi.appendChild(lblName);
+            newLi.appendChild(lblScore);
+
             highScoreListEl.appendChild(newLi);
         }
     };
 
     this.getName = function () {
         var name = prompt("Enter your initials XXX.");
-        return name.substr(0,3);
+        return name.substr(0, 3);
     }
 }
 
