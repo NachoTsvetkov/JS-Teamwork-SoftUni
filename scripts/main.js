@@ -12,8 +12,6 @@ var canvasEl = document.getElementById("canvas"),
     btnRestartEl = document.getElementById("btnRestart"),
     lblScoreEl = document.getElementById("lblScore"),
     lblLevelEl = document.getElementById("lblLevel"),
-    imgTileEl = document.getElementById("imgTile"),
-    imgPlayerEl = document.getElementById("imgPlayer"),
     message = new Message(messageEl),
     keys = [],
     tiles = new Tiles(),
@@ -75,10 +73,10 @@ function update() {
         isActive = player.update(keys, tiles.activeTiles);
 
         for (var tile in tiles.activeTiles) {
-            board.fillRect(tiles.activeTiles[tile], imgTileEl);
+            board.fillRect(tiles.activeTiles[tile]);
         }
 
-        board.fillRect(player, imgPlayerEl);
+        board.fillRect(player);
 
         requestAnimationFrame(update);
     } else {

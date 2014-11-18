@@ -3,16 +3,16 @@ function Config() {
     this.lblStop = "PAUSE";
     this.lblRestart = "RESTART";
 
-    this.canvasWidth = 300;
-    this.canvasHeight = 400;
+    this.canvasWidth = 400;
+    this.canvasHeight = 570;
 
-    this.palyerWidth = 20;
-    this.playerHeight = 20;
+    this.palyerWidth = 30;
+    this.playerHeight = 40;
     this.playerSpeed = 3;
     this.playerColor = "#FFFFFF";
     this.playerJumpSpeed = 4;
 
-    this.tileMaxWidth = 100;
+    this.tileMaxWidth = 150;
     //this.tileMinWidth = 30;
     this.tileHeight = 15;
     this.tileColor = "#FFFFFF";

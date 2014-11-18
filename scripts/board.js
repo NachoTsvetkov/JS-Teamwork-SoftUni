@@ -12,13 +12,9 @@ function Board(element, player) {
         that.fillRect(player);
     }
 
-    this.fillRect = function (rect, imgEl) {
-        if (imgEl) {
-            that.context.drawImage(imgEl, rect.x, rect.y);
-        } else {
-            that.context.fillStyle = rect.color;
-            that.context.fillRect(rect.x, rect.y, rect.width, rect.height);
-        }
+    this.fillRect = function(rect) {
+        that.context.fillStyle = rect.color;
+        that.context.fillRect(rect.x, rect.y, rect.width, rect.height);
     }
 
     this.clearRect = function() {
