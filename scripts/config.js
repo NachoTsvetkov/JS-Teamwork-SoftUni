@@ -6,8 +6,8 @@ function Config() {
     this.canvasWidth = 400;
     this.canvasHeight = 570;
 
-    this.palyerWidth = 30;
-    this.playerHeight = 40;
+    this.palyerWidth = 20;
+    this.playerHeight = 75;
     this.playerSpeed = 3;
     this.playerColor = "#FFFFFF";
     this.playerJumpSpeed = 4;
