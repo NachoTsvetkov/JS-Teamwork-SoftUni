@@ -4,7 +4,7 @@ function Config() {
     this.lblRestart = "RESTART";
 
     this.canvasWidth = 400;
-    this.canvasHeight = 570;
+    this.canvasHeight = 550;
 
     this.palyerWidth = 20;
     this.playerHeight = 75;

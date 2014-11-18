@@ -20,6 +20,7 @@ body {
 .game-header {
     width: 100%;
     font-size: 36px;
+    margin: 1% auto;
 }
 
 .game-scores, .game-info {
@@ -29,7 +30,6 @@ body {
     width: 25%;
     padding: 1%;
 }
-
 
 .game-canvas {
     display: inline-block;
@@ -42,12 +42,35 @@ body {
     float: left;
 }
 
-.game-scores > h2{
-    margin: 1% auto 3%;
+.game-scores > h2 {
+    margin: 1% auto 5%;
+}
+
+.game-scores > ol > li > label {
+    display: inline-block;
+    text-align: center;
+}
+
+.game-scores .scoreName {
+    width: 60%;
+}
+
+.game-scores .scoreValue {
+    width: 40%;
 }
 
 .game-info {
     float: right;
+}
+
+.game-message {
+    font-size: 30px;
+    position: absolute;
+    width: 100%;
+    top: 45%;
+    left: 0;
+    margin: 0 auto;
+    text-align: center;
 }
 
 ol {
