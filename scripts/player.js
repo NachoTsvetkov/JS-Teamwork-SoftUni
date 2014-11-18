@@ -29,7 +29,7 @@ function Player(tile) {
         }
 
         if (keys[40]) {
-            that.velY = 2;
+            that.velY += 0.2;
         }
 
         if (keys[39]) {

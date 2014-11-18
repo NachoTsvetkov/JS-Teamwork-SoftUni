@@ -17,7 +17,7 @@ function Config() {
     this.tileHeight = 15;
     this.tileColor = "#FFFFFF";
     this.tileStartVel = 1;
-    this.tileLevelUpRatio = 0.05;
+    this.tileLevelUpRatio = 0.1;
 
     this.tilesTimeInterval = 140;
     this.tilesLevelUpRatio = 20;
@@ -25,6 +25,6 @@ function Config() {
     this.friction = 0.9;
     this.gravity = 0.05;
 
-    this.levelUpScore = 1000;
+    this.levelUpScore = 2000;
     this.levelUpMessage = "Level: ";
 }
