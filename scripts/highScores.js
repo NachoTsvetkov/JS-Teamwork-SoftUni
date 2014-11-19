@@ -85,6 +85,9 @@ function HighScores() {
 
     this.getName = function () {
         var name = prompt("Enter your initials XXX.");
+        if(name == "" || name == null){
+            return "No name!";
+        }
         return name.substr(0, 3);
     }
 }
